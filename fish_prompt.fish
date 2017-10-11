@@ -98,7 +98,7 @@ end
 
 function prompt_node_version -d "Display Node version"
   set -l node_version (echo node --version")
-  prompt_segment white black "$node_version"
+  prompt_segment white black $node_version
 
 
 function prompt_user -d "Display current user if different from $default_user"
