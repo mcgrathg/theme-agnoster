@@ -13,7 +13,7 @@ function prompt_vi_mode -d 'vi mode status indicator'
         set_color blue
         echo "$right_segment_separator"
         set_color -b blue black
-        echo " " (node --version) " "
+        echo " " (date "+%I:%M %p") " "
       case visual
         set_color red
         echo "$right_segment_separator"
@@ -26,6 +26,5 @@ function fish_right_prompt -d 'Prints right prompt'
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
     prompt_vi_mode
     set_color normal
-    echo (date "+%I:%M %p")
   end
 end
