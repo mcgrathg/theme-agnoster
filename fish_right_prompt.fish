@@ -22,8 +22,13 @@ function prompt_vi_mode -d 'vi mode status indicator'
     end
 end
 
+function prompt_node_version -d "Display Node version"
+  prompt_segment white black (node --version)
+end
+
 function fish_right_prompt -d 'Prints right prompt'
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
+    prompt_node_version
     prompt_vi_mode
     set_color normal
   end
