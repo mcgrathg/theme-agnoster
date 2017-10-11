@@ -201,26 +201,12 @@ function svn_get_revision -d "get the current revision number"
   svn info 2> /dev/null | sed -n 's/Revision:\ //p'
 end
 
-
-function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
-    if [ $RETVAL -ne 0 ]
-      prompt_segment black red "✘"
-    end
-
-    # if superuser (uid == 0)
-    set -l uid (id -u $USER)
-    if [ $uid -eq 0 ]
-      prompt_segment black yellow "⚡"
-    end
-end
-
 # ===========================
 # Apply theme
 # ===========================
 
 function fish_prompt
   set -g RETVAL $status
-  prompt_status
   prompt_node_version
   prompt_user
   prompt_dir
