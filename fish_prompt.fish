@@ -226,8 +226,8 @@ function fish_prompt
   set -g RETVAL $status
   prompt_status
   prompt_user
-  prompt_node_version
   prompt_dir
+  prompt_node_version
   type -q hg;  and prompt_hg
   type -q git; and prompt_git
   type -q svn; and prompt_svn
