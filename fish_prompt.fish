@@ -225,7 +225,7 @@ end
 function fish_prompt
   set -g RETVAL $status
   prompt_status
-  prompt_node_version
+  # prompt_node_version
   prompt_user
   prompt_dir
   type -q hg;  and prompt_hg

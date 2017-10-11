@@ -26,6 +26,6 @@ function fish_right_prompt -d 'Prints right prompt'
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
     prompt_vi_mode
     set_color normal
-    echo " " (date "+%I:%M %p")
+    echo (date "+%I:%M %p")
   end
 end
