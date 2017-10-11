@@ -97,8 +97,7 @@ function prompt_virtual_env -d "Display Python virtual environment"
 end
 
 function prompt_node_version -d "Display Node version"
-    prompt_segment white black (node --version)
-  end
+  prompt_segment white black (node --version)
 end
 
 function prompt_user -d "Display current user if different from $default_user"
