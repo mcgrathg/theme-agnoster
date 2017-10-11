@@ -22,7 +22,7 @@ function prompt_vi_mode -d 'vi mode status indicator'
     end
 end
 
-function prompt_node_version -d "Display Node version"
+function prompt_node_version_on_right -d "Display Node version"
   set -l right_segment_separator \uE0B2
   set_color white
   echo "$right_segment_separator"
@@ -31,7 +31,7 @@ function prompt_node_version -d "Display Node version"
 end
 
 function fish_right_prompt -d 'Prints right prompt'
-  prompt_node_version
+  prompt_node_version_on_right
   set_color normal
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
     prompt_vi_mode
