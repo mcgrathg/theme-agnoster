@@ -13,7 +13,7 @@ function prompt_vi_mode -d 'vi mode status indicator'
         set_color blue
         echo "$right_segment_separator"
         set_color -b blue black
-        echo (node --version)
+        echo (node --version) " "
       case visual
         set_color red
         echo "$right_segment_separator"
