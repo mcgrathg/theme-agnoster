@@ -23,7 +23,9 @@ function prompt_vi_mode -d 'vi mode status indicator'
 end
 
 function prompt_node_version -d "Display Node version"
-  prompt_segment white black (node --version)
+  echo "$right_segment_separator"
+  set_color -b white black
+  echo (node --version)
 end
 
 function fish_right_prompt -d 'Prints right prompt'
