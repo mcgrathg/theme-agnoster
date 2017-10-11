@@ -96,11 +96,6 @@ function prompt_virtual_env -d "Display Python virtual environment"
   end
 end
 
-function prompt_node_version -d "Display Node version"
-  set -l node_version (echo node --version")
-  prompt_segment white black $node_version
-
-
 function prompt_user -d "Display current user if different from $default_user"
   if [ "$theme_display_user" = "yes" ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
@@ -201,13 +196,32 @@ function svn_get_revision -d "get the current revision number"
   svn info 2> /dev/null | sed -n 's/Revision:\ //p'
 end
 
+
+function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
+    if [ $RETVAL -ne 0 ]
+      prompt_segment black red "✘"
+    end
+
+    # if superuser (uid == 0)
+    set -l uid (id -u $USER)
+    if [ $uid -eq 0 ]
+      prompt_segment black yellow "⚡"
+    end
+
+    # Jobs display
+    if [ (jobs -l | wc -l) -gt 0 ]
+      prompt_segment black cyan "⚙"
+    end
+end
+
 # ===========================
 # Apply theme
 # ===========================
 
 function fish_prompt
   set -g RETVAL $status
-  prompt_node_version
+  prompt_status
+  prompt_virtual_env
   prompt_user
   prompt_dir
   type -q hg;  and prompt_hg
